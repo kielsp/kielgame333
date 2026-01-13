@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Detail Produk Gaming</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #3a3f44;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #3a3f44;
+    border-radius: 14px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.product-image img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* INFO */
+.product-info h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.price {
+    color: #1aa053;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+
+/* FORM */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* BUTTONS */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+.buy {
+    background: #2563eb;
+    color: #fff;
+}
+
+.cart {
+    background: #2563eb;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.back {
+    margin-top: 12px;
+    display: inline-block;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- GAMBAR PRODUK -->
+    <div class="product-image">
+        <img src="img/headset.jpg" alt="Perlengkapan Gaming">
+    </div>
+
+    <!-- FORM PEMBELIAN -->
+    <div class="product-info">
+        <h1>Headset</h1>
+        <div class="price">Rp 360.000</div>
+
+        <label>Nama Lengkap</label>
+        <input type="text" placeholder="Masukkan nama">
+
+        <label>Alamat Lengkap</label>
+        <textarea placeholder="Masukkan alamat pengiriman"></textarea>
+
+        <label>Varian Produk</label>
+        <select>
+            <option>Pilih Varian</option>
+            <option>Hitam</option>
+            <option>Putih</option>
+        </select>
+
+        <label>Jumlah Barang</label>
+        <input type="number" value="1" min="1">
+
+        <label>Catatan (Opsional)</label>
+        <textarea placeholder="Contoh: kirim sore hari"></textarea>
+
+        <button class="btn buy">Beli Sekarang</button>
+        <button class="btn cart">+ Tambah ke Keranjang</button>
+
+        <a href="#" class="back">← Kembali</a>
+    </div>
+
+</div>
+
+</body>
+</html>
