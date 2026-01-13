@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pembayaran | Kiel Game</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+    color: #fff;
+    padding: 30px;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #111827;
+    border-radius: 16px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* LEFT */
+.left img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* RIGHT */
+.right h2 {
+    margin-top: 0;
+}
+
+.price {
+    color: #22c55e;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* SUMMARY */
+.summary p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.summary hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #374151;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* QRIS */
+.qris {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.qris img {
+    width: 220px;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- KIRI -->
+    <div class="left">
+        <img src="img/cont.jpg" alt="Produk">
+    </div>
+
+    <!-- KANAN -->
+    <div class="right">
+        <h2 id="produk">Produk</h2>
+        <div class="price" id="total">Rp 0</div>
+
+        <div class="summary">
+            <p><b>Nama:</b> <span id="nama"></span></p>
+            <p><b>Jumlah:</b> <span id="jumlah"></span></p>
+            <p><b>Catatan:</b> <span id="catatan"></span></p>
+
+            <hr>
+
+            <p><b>Total Bayar:</b></p>
+            <div class="price" id="totalBayar"></div>
+        </div>
+
+        <button onclick="tampilkanQRIS()">Bayar Sekarang</button>
+
+        <div class="qris" id="qrisBox" style="display:none;">
+            <p>Scan QRIS untuk pembayaran</p>
+            <img src="img/qris.png" alt="QRIS">
+        </div>
+    </div>
+
+</div>
+
+<script>
+// AMBIL DATA DARI HALAMAN PRODUK
+const pesanan = JSON.parse(localStorage.getItem("pesanan")) || {
+    produk: "Controler PS5",
+    nama: "-",
+    jumlah: 1,
+    catatan: "-",
+    total: 1300000
+};
+
+// TAMPILKAN DATA
+document.getElementById("produk").innerText = pesanan.produk;
+document.getElementById("nama").innerText = pesanan.nama;
+document.getElementById("jumlah").innerText = pesanan.jumlah;
+document.getElementById("catatan").innerText = pesanan.catatan || "-";
+document.getElementById("total").innerText =
+    "Rp " + pesanan.total.toLocaleString("id-ID");
+document.getElementById("totalBayar").innerText =
+    "Rp " + pesanan.total.toLocaleString("id-ID");
+
+// TOMBOL BAYAR
+function tampilkanQRIS() {
+    document.getElementById("qrisBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
